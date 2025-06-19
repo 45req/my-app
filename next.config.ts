@@ -1,23 +1,8 @@
-import type { NextConfig } from "next"
-
-const nextConfig: NextConfig = {
-	productionBrowserSourceMaps: false,
-	poweredByHeader: false,
-	images: {
-		remotePatterns: [
-			{
-				hostname: "www.google.com",
-				pathname: "/**",
-			},
-			{
-				hostname: "cdn.osint.industries",
-				pathname: "/**",
-			},
-		],
-	},
-	experimental: {
-		nodeMiddleware: true,
-	},
+module.exports = {
+  // Required for Netlify
+  output: 'export', // Static export mode
+  images: {
+    unoptimized: true, // Disable default Image Optimization API
+  },
+  trailingSlash: true, // Ensure consistent URLs
 }
-
-export default nextConfig
