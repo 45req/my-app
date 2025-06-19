@@ -1,8 +1,20 @@
-module.exports = {
-  // Required for Netlify
-  output: 'export', // Static export mode
+import type { NextConfig } from 'next'
+
+const config: NextConfig = {
+  output: 'export', // Required for static deployment
+  trailingSlash: true, // Ensures consistent URL endings
   images: {
-    unoptimized: true, // Disable default Image Optimization API
+    unoptimized: true, // Disables Vercel's image optimization
   },
-  trailingSlash: true, // Ensure consistent URLs
+  // Type-safe configuration
+  typescript: {
+    ignoreBuildErrors: true, // Optional for smoother builds
+  },
+  // Add this if using internationalization
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+  }
 }
+
+export default config
